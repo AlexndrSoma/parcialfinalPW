@@ -16,7 +16,7 @@ app.set('views', path.join(__dirname,'views'));
 app.set('view engine', 'ejs');
 
 app.listen(app.get('port') , () => {
- 
+    console.log('EScuchando puerto 3000');
 });
 
 

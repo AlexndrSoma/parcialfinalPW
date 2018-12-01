@@ -1,4 +1,58 @@
 <% include partials/_header %>
-    Holaaa ftrrtr
+
+
+    <div class="col-md-6">
+        <div class="card">
+                <div class="card-body"> 
+<form action="/add" method="post">
+<div class="form-group">
+    <input class="form-contol" name="id"></div>
+    <div class="form-group">
+    <input class="form-contol" name="marca"></div>
+    <div class="form-group">
+    <input class="form-contol" name="modelo"></div>
+    <div class="form-group">
+    <input class="form-contol" name="t_vida"></div>
+    
+    <button class="submit" class="btn btn-primary"> ADD </button></div>
+</form>
+
+                </div>
+        </div>
+    </div>
+
+    <div class="col-md-7">
+            <div class="card">
+                    <div class="card-body"> 
+        <table class="table table-striped table-bordered table-hove">
+            <thead class="thead-dark">
+                <tr>
+                    <th> ID </th>
+                    <th> MARCA </th>
+                    <th> MODELO </th>
+                    <th> T_VIDA </th>
+                </tr>
+            </thead>
+            <tbody>
+       <% for(var i=0; i < tasks.length; i++) { %>
+        <tr>
+            <td class="table-active"> <%= tasks[i].id %> </td>
+            <td> <%= tasks[i].marca %> </td>
+            <td> <%= tasks[i].modelo %> </td>
+            <td> <%= tasks[i].t_vida %> </td>
+            <td> <a href="/delete/<%= tasks[i]._id %>"> DELETE </a></td>
+            <td> <a href="/edit/<%= tasks[i]._id %>" > EDIT </a></td>
+        </tr>
+
+        <% } %> 
+            </tbody>
+        </table>
+    </div>
+</div>
+
+        </div>
+
+
+
 
     <% include partials/_footer %>
