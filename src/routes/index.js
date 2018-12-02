@@ -8,8 +8,10 @@ router.get('/', async (req,res) => {
     res.render ('index', { tasks });
 
 });
+
+
  
-router.post('/add', async (req,res) => {
+router.post('/api/Celulares/', async (req,res) => {
     const tasks =  new Task(req.body);
     await tasks.save();
     res.redirect('/');
@@ -18,7 +20,7 @@ router.post('/add', async (req,res) => {
 
 router.get('/edit/:id', async (req,res) => {
     const task = await Task.findById(req.params.id);
-    res.render('edit', { task });
+    res.render('edit', { Task });
   });
   
   
@@ -29,7 +31,7 @@ router.get('/edit/:id', async (req,res) => {
   });
 
 
-router.get('/delete/:id', async (req,res) => {
+router.get('/api/Celulares/:id', async (req,res) => {
     let { id } = req.params;
     await Task.remove({_id:id});
     res.redirect('/');

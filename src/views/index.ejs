@@ -1,30 +1,43 @@
 <% include partials/_header %>
 
+<div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+          <h1 class="display-4 font-italic">Administrador de celulares</h1>
+        
+        </div>
+      </div>
 
-    <div class="col-md-6">
+
+<br>
+<br>
+<div class="row">
+    <div class="col-md-12">
         <div class="card">
                 <div class="card-body"> 
-<form action="/add" method="post">
-<div class="form-group">
-    <input class="form-contol" name="id"></div>
+<form action="/api/Celulares/" method="post" class="form-horizontal">
+
     <div class="form-group">
-    <input class="form-contol" name="marca"></div>
+    <input class="form-contol" name="id" placeholder="id"></div>
     <div class="form-group">
-    <input class="form-contol" name="modelo"></div>
+    <input id="text" class="form-contol" name="marca" placeholder="marca"></div>
     <div class="form-group">
-    <input class="form-contol" name="t_vida"></div>
+    <input class="form-contol" name="modelo" placeholder="modelo"></div>
+    <div class="form-group">
+    <input class="form-contol" name="t_vida" placeholder="t_vida"></div>
     
-    <button class="submit" class="btn btn-primary"> ADD </button></div>
+    <button class="submit btn btn-primary"> ADD </button></div>
 </form>
+</div>
 
                 </div>
         </div>
     </div>
+</div>
 
-    <div class="col-md-7">
+    <div class="col-md-12">
             <div class="card">
                     <div class="card-body"> 
-        <table class="table table-striped table-bordered table-hove">
+        <table class="table table-striped table-bordered table-hove table-sm table-dark">
             <thead class="thead-dark">
                 <tr>
                     <th> ID </th>
@@ -35,13 +48,13 @@
             </thead>
             <tbody>
        <% for(var i=0; i < tasks.length; i++) { %>
-        <tr>
+        <tr class="table-active"></tr>>
             <td class="table-active"> <%= tasks[i].id %> </td>
             <td> <%= tasks[i].marca %> </td>
             <td> <%= tasks[i].modelo %> </td>
             <td> <%= tasks[i].t_vida %> </td>
-            <td> <a href="/delete/<%= tasks[i]._id %>"> DELETE </a></td>
-            <td> <a href="/edit/<%= tasks[i]._id %>" > EDIT </a></td>
+            <td> <button class="btn btn-danger"><a href="/api/Celulares/<%= tasks[i]._id %>"> DELETE </a> </button> </td>
+            <td> <button class="btn btn-warning"><a href="/edit/<%= tasks[i]._id %>" > EDIT </a></button> </td>
         </tr>
 
         <% } %> 
